@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  ffdc-api-security:
+    image: ffdc-api-security
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 100:100
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect index.js

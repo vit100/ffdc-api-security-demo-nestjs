@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  ffdc-api-security:
+    image: ffdc-api-security
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 100:100
