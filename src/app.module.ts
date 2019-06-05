@@ -8,6 +8,7 @@ import { AccountsService } from './bll/accounts/accounts.service';
 import { AccountsRepoService } from './data/accounts-repo/accounts-repo.service';
 import { JwtExtractMiddleware } from './core/jwt-extract.middleware';
 import { ConsumersRepoService } from './data/consumers-repo/consumers-repo.service';
+import { SwaggerMiddleware } from './swagger/swagger.middleware';
 
 @Module({
   imports: [],
@@ -23,6 +24,10 @@ import { ConsumersRepoService } from './data/consumers-repo/consumers-repo.servi
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void | MiddlewareConsumer {
-    consumer.apply(JwtExtractMiddleware).forRoutes('/api');
+    consumer
+      .apply(JwtExtractMiddleware)
+      .forRoutes('/api')
+      .apply(SwaggerMiddleware)
+      .forRoutes('/');
   }
 }

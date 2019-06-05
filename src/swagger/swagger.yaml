@@ -1,0 +1,214 @@
+swagger: '2.0'
+info:
+  title: Bank service
+  version: 1.0.0
+  termsOfService: https://www.finastra.com
+  license:
+    name: license
+    url: https://www.finastra.com
+tags:
+  - name: B2C API
+    description: consumer APIs
+  - name: B2B API
+    description: Business to Business APIs
+  - name: B2E API
+    description: Business to Employee
+  - name: K8 health/ready probes
+    description: K8 service endpoints
+    externalDocs:
+      description: K8 documentation
+      url: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#define-readiness-probes
+basePath: '/'
+schemes:
+  - https
+  - http
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  '/api/b2c/accounts':
+    get:
+      tags:
+        - B2C API
+      responses:
+        '200':
+          description: Sucessfull response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account'
+        '401':
+          description: 401 Unauthorized
+      security:
+        - auth_code: []
+      deprecated: false
+
+  '/api/b2b/consumers':
+    get:
+      tags:
+        - B2B API
+      responses:
+        '200':
+          description: Returns list of consumers
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Consumer'
+        '401':
+          description: 401 Unauthorized
+      security:
+        - api_key: []
+      deprecated: false
+
+  '/api/b2b/acconts/{consumerId}':
+    get:
+      tags:
+        - B2B API
+      parameters:
+        - name: consumerId
+          in: path
+          description: Consumer id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Returns list of acounts belonging to consumer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account'
+          examples:
+            account for user ffdcuser1:
+              - id: 123
+                accountName: Checking
+                balance: 100
+                availableBalance: 200
+                consumerId: ffdcuser1
+        '401':
+          description: 401 Unauthorized
+
+      security:
+        - api_key: []
+      deprecated: false
+
+  '/api/b2e/consumers':
+    get:
+      tags:
+        - B2E API
+      responses:
+        '200':
+          description: Returns list of consumers
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Consumer'
+        '401':
+          description: 401 Unauthorized
+      security:
+        - auth_code: []
+
+  '/api/b2e/acconts/{consumerId}':
+    get:
+      tags:
+        - B2E API
+      parameters:
+        - name: consumerId
+          in: path
+          description: Consumer id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Returns list of acounts belonging to consumer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account'
+          examples:
+            account for user ffdcuser1:
+              - id: 123
+                accountName: Checking
+                balance: 100
+                availableBalance: 200
+                consumerId: ffdcuser1
+        '401':
+          description: 401 Unauthorized
+      security:
+        - auth_code: []
+
+  '/_status/healthz':
+    get:
+      description: Get health information probe
+      tags:
+        - K8 health/ready probes
+      responses:
+        '200':
+          description: Sucessfull response
+          examples:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+  '/_status/readyz':
+    get:
+      description: ReadyZ probe
+      operationId: ''
+      tags:
+        - K8 health/ready probes
+      responses:
+        '200':
+          description: Sucessfull response
+          examples:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+
+definitions:
+  'Account':
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      accountName:
+        type: string
+        description: Acount name
+      balance:
+        type: number
+        format: currency
+      availableBalance:
+        type: number
+        format: currency
+      consumerUserName:
+        type: string
+
+  'Consumer':
+    type: object
+    description: Consumer DTO
+    properties:
+      username:
+        type: string
+        description: User Name
+      firstName:
+        type: string
+        description: First Name
+      lastName:
+        type: string
+        description: Last Name
+
+securityDefinitions:
+  auth_code:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://api.preprod.fusionfabric.cloud/login/v1/sandbox/oidc/authorize
+    tokenUrl: https://api.preprod.fusionfabric.cloud/login/v1/sandbox/oidc/token
+    description: Preprod B2C B2E
+  api_key:
+    type: oauth2
+    flow: application
+    tokenUrl: https://api.preprod.fusionfabric.cloud/login/v1/sandbox/oidc/token
+    description: Preprod B2B Resource owner flow
+
+    

@@ -1,4 +1,4 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { CanActivate, ExecutionContext, Injectable, Logger } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import jsonwebtoken from 'jsonwebtoken';
@@ -29,7 +29,7 @@ export class ApiGuard implements CanActivate {
 
       jsonwebtoken.verify(req.token, this.fetchPublicKey.bind(this), null, (err, decodedToken) => {
         if (err) {
-          console.error(err);
+          Logger.error(err);
           resolve(false);
           return;
         }

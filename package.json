@@ -22,8 +22,10 @@
     "@nestjs/common": "^6.2.4",
     "@nestjs/core": "^6.2.4",
     "@nestjs/platform-express": "^6.2.4",
+    "@nestjs/swagger": "^3.0.2",
+    "@types/swagger-ui-express": "^3.0.0",
+    "@types/yamljs": "^0.2.30",
     "cors": "^2.8.5",
-    "debug": "^4.1.1",
     "dotenv": "^8.0.0",
     "express-bearer-token": "^2.4.0",
     "helmet": "^3.18.0",
@@ -31,7 +33,9 @@
     "jwks-rsa": "^1.5.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.3",
-    "rxjs": "^6.5.2"
+    "rxjs": "^6.5.2",
+    "swagger-ui-express": "^4.0.6",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.2.4",
