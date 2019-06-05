@@ -9,11 +9,17 @@ import { AccountsRepoService } from './data/accounts-repo/accounts-repo.service'
 import { JwtExtractMiddleware } from './core/jwt-extract.middleware';
 import { ConsumersRepoService } from './data/consumers-repo/consumers-repo.service';
 
-
 @Module({
   imports: [],
   controllers: [B2cController, B2bController, B2eController],
-  providers: [ConfigService, ConsumersService, AccountsService, AccountsRepoService, ConsumersRepoService],
+  providers: [
+    ConfigService,
+    ConsumersService,
+    AccountsService,
+    AccountsRepoService,
+    ConsumersRepoService,
+    B2eController,
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void | MiddlewareConsumer {

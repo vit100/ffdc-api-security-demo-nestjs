@@ -15,4 +15,8 @@ describe('ConsumersRepoService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should have method consumers', () => {
+    expect(service.consumers).toBeDefined();
+  });
 });

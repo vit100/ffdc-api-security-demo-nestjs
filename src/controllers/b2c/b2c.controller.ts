@@ -1,8 +1,9 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards, Injectable } from '@nestjs/common';
 import { AccountsService } from '../../bll/accounts/accounts.service';
 import { ApiGuard } from '../../core/api.guard';
 
 @Controller('/api/b2c')
+@Injectable()
 @UseGuards(ApiGuard)
 export class B2cController {
   constructor(private accountsService: AccountsService) {}
