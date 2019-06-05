@@ -15,4 +15,20 @@ describe('ConfigService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should have static prop port', () => {
+    expect(ConfigService.port).toBeDefined();
+  });
+
+  it('should have instance prop port', () => {
+    expect(service.port).toBeDefined();
+  });
+
+  it('should have instance prop jwks', () => {
+    expect(service.jwks).toBeDefined();
+  });
+
+  it('should have instance prop jwks length > 0', () => {
+    expect(service.jwks.length > 0).toBeTruthy();
+  });
 });

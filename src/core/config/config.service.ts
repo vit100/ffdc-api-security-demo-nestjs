@@ -10,4 +10,12 @@ export class ConfigService {
   public static get port(): string {
     return process.env.PORT;
   }
+
+  public get port(): string {
+    return process.env.PORT;
+  }
+
+  public get jwks(): string {
+    return process.env.JWKS;
+  }
 }

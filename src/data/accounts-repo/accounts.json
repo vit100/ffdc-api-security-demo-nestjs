@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "accountName": "No Fee Chequing Account",
+    "availableBalance": 127456.74,
+    "balance": 127656.74,
+    "consumerUserName": "ffdcuser1"
+  },
+  {
+    "id": 2,
+    "accountName": "No Fee Chequing Account",
+    "availableBalance": 234.66,
+    "balance": 234.66,
+    "consumerUserName": "ffdcuser1"
+  },
+  {
+    "id": 3,
+    "accountName": "High Interest Saving Account",
+    "availableBalance": 678234.12,
+    "balance": 678234.12,
+    "consumerUserName": "ffdcuser1"
+  },
+  {
+    "id": 4,
+    "accountName": "High Intereset Investement Account",
+    "availableBalance": 8778.65,
+    "balance": 8778.65,
+    "consumerUserName": "ffdcuser1"
+  },
+  {
+    "id": 5,
+    "accountName": "No Fee Chequing Account",
+    "availableBalance": 250.16,
+    "balance": 150.16,
+    "consumerUserName": "ffdcuser2"
+  },
+  {
+    "id": 6,
+    "accountName": "High Interest Saving Account",
+    "availableBalance": 8234.12,
+    "balance": 8234.12,
+    "consumerUserName": "ffdcuser2"
+  }
+]
