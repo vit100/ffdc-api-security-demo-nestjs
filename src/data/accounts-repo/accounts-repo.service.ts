@@ -5,7 +5,7 @@ import mockData from './accounts.json';
 
 @Injectable()
 export class AccountsRepoService {
-  accounts(consumerUserName): Account[] {
-    return mockData.filter(a => a.consumerUserName === consumerUserName);
+  accounts(consumerUsername): Account[] {
+    return mockData.filter(a => a.consumerUserName === consumerUsername);
   }
 }

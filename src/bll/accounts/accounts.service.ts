@@ -5,7 +5,11 @@ import { AccountsRepoService } from '../../data/accounts-repo/accounts-repo.serv
 export class AccountsService {
   constructor(private accountsRepo: AccountsRepoService) {}
 
-  getAccounts(consumerUserName) {
-    return this.accountsRepo.accounts(consumerUserName);
+  getConsumerAccounts(consumerUsername: any) {
+    return this.accountsRepo.accounts(consumerUsername);
+  }
+
+  getAccounts(consumerUsername) {
+    return this.accountsRepo.accounts(consumerUsername);
   }
 }
