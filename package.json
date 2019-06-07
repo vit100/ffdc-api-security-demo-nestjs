@@ -1,16 +1,20 @@
 {
   "name": "ffdc-api-security",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Finastra security demo API implemented in NESTJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vit100/ffdc-api-security-demo-nestjs.git"
+  },
+  "author": "Vitaliy Markitanov",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "prestart:dev": "copy src\\swagger\\swagger.yaml dist\\swagger",
-    "prestart:debug": "copy src\\swagger\\swagger.yaml dist\\swagger",
-    "prestart:prod": "copy src\\swagger\\swagger.yaml dist\\swagger",
+    "prestart:dev": "cpx src\\swagger\\swagger.yaml dist\\swagger",
+    "prestart:debug": "cpx src\\swagger\\swagger.yaml dist\\swagger",
+    "prestart:prod": "cpx src\\swagger\\swagger.yaml dist\\swagger",
     "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "start:debug": "nodemon --config nodemon-debug.json",
     "start:prod": "node dist/main.js",
@@ -28,6 +32,7 @@
     "@nestjs/swagger": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
+    "cpx": "^1.5.0",
     "express-bearer-token": "^2.4.0",
     "express-jwt": "^5.3.1",
     "helmet": "^3.18.0",

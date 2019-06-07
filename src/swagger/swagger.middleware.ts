@@ -1,3 +1,4 @@
+import path from 'path';
 import { Request, Response } from 'express';
 import swaggerUiExpress from 'swagger-ui-express';
 import yamljs from 'yamljs';
@@ -5,7 +6,7 @@ import yamljs from 'yamljs';
 // TO be reviewded this approach.
 // Vit
 
-const yamlDoc = yamljs.load(__dirname + '\\swagger.yaml');
+const yamlDoc = yamljs.load(path.join(__dirname, 'swagger.yaml'));
 
 export function f1(req: Request, res: Response, next) {
   if (req.url.includes('api')) {
