@@ -33,10 +33,10 @@ $ npm run start:prod
 ```
 
 ## Running in docker. Test
-
+```
 $ docker build -t ffdc-api-security .
 $ docker run --rm -it -e PORT=100 -p 100:100/tcp ffdc-api-security:latest
-
+```
 open browser and point to http://localhost:100
 
 ## Test
