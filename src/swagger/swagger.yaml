@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: Bank service
+  title: Bank service. Solution implemented in NestJs.
   version: 1.0.0
   termsOfService: https://www.finastra.com
   license:

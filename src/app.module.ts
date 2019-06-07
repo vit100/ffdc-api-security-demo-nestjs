@@ -8,11 +8,16 @@ import { AccountsService } from './bll/accounts/accounts.service';
 import { AccountsRepoService } from './data/accounts-repo/accounts-repo.service';
 import { JwtExtractMiddleware } from './core/jwt-extract.middleware';
 import { ConsumersRepoService } from './data/consumers-repo/consumers-repo.service';
-import { SwaggerMiddleware } from './swagger/swagger.middleware';
+
+import cors from 'cors';
+import helmet from 'helmet';
+
+import { f1, f2, f3 } from './swagger/swagger.middleware';
+import { RootController } from './controllers/root.controller';
 
 @Module({
   imports: [],
-  controllers: [B2cController, B2bController, B2eController],
+  controllers: [B2cController, B2bController, B2eController, RootController],
   providers: [
     ConfigService,
     ConsumersService,
@@ -25,9 +30,11 @@ import { SwaggerMiddleware } from './swagger/swagger.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void | MiddlewareConsumer {
     consumer
+      .apply(cors(), helmet())
+      .forRoutes('*')
       .apply(JwtExtractMiddleware)
       .forRoutes('/api')
-      .apply(SwaggerMiddleware)
-      .forRoutes('/');
+      .apply(f1, f2, f3)
+      .forRoutes('/'); // if we need to serve separately generated file
   }
 }

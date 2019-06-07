@@ -1,5 +1,5 @@
 import { ApiGuard } from './api.guard';
-import {ConfigService} from '../core/config/config.service';
+import { ConfigService } from '../core/config/config.service';
 
 describe('ApiGuard', () => {
   it('should be defined', () => {

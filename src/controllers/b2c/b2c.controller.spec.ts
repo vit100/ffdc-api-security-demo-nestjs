@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { B2cController } from './b2c.controller';
 import { AccountsService } from '../../bll/accounts/accounts.service';
 import { AccountsRepoService } from '../../data/accounts-repo/accounts-repo.service';
-import {ConfigService} from '../../core/config/config.service';
+import { ConfigService } from '../../core/config/config.service';
 
 describe('B2c Controller', () => {
   let controller: B2cController;
@@ -27,5 +27,4 @@ describe('B2c Controller', () => {
   it('should have method geAccounts() with 1 param', () => {
     expect(controller.geAccounts.length).toEqual(1);
   });
-
 });

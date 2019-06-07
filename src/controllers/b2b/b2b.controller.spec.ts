@@ -13,7 +13,14 @@ describe('B2b Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [B2bController],
-      providers: [B2eController, ConsumersService, AccountsService, ConsumersRepoService, AccountsRepoService, ConfigService],
+      providers: [
+        B2eController,
+        ConsumersService,
+        AccountsService,
+        ConsumersRepoService,
+        AccountsRepoService,
+        ConfigService,
+      ],
     }).compile();
 
     controller = module.get<B2bController>(B2bController);
