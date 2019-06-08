@@ -9,12 +9,12 @@
   "author": "Vitaliy Markitanov",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "npm run copy-swagger && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "prestart:dev": "cpx src\\swagger\\swagger.yaml dist\\swagger",
-    "prestart:debug": "cpx src\\swagger\\swagger.yaml dist\\swagger",
-    
+    "prestart:dev": "npm run copy-swagger",
+    "prestart:debug": "npm run copy-swagger",
+    "copy-swagger":"cpx src\\swagger\\swagger.yaml dist\\swagger",
     "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "start:debug": "nodemon --config nodemon-debug.json",
     "start:prod": "node dist/main.js",
