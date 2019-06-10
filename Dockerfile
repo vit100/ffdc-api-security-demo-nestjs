@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 COPY . .
 RUN npm install
-RUN npm run build
+RUN npm run build:prod
 
 FROM node
 WORKDIR /app

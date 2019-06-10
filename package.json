@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json && npm run copy-swagger",
+    "build:prod": "rimraf dist && tsc -p tsconfig.build.prod.json && npm run copy-swagger",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "prestart:dev": "npm run copy-swagger",
@@ -39,7 +40,6 @@
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.5.1",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^2.6.3",
     "rxjs": "^6.5.2",
     "swagger-ui-express": "^4.0.6",
     "yamljs": "^0.3.0"
@@ -56,6 +56,7 @@
     "@types/swagger-ui-express": "^3.0.0",
     "@types/yamljs": "^0.2.30",
     "concurrently": "^4.1.0",
+    "rimraf": "^2.6.3",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "prettier": "^1.17.1",

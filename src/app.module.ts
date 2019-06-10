@@ -8,15 +8,16 @@ import { AccountsService } from './bll/accounts/accounts.service';
 import { AccountsRepoService } from './data/accounts-repo/accounts-repo.service';
 import { JwtExtractMiddleware } from './core/jwt-extract.middleware';
 import { ConsumersRepoService } from './data/consumers-repo/consumers-repo.service';
+import { f1, f2, f3 } from './swagger/swagger.middleware';
+import { RootController } from './controllers/root.controller';
+import { HealthModule } from './health/health.module';
 
 import cors from 'cors';
 import helmet from 'helmet';
 
-import { f1, f2, f3 } from './swagger/swagger.middleware';
-import { RootController } from './controllers/root.controller';
 
 @Module({
-  imports: [],
+  imports: [HealthModule],
   controllers: [B2cController, B2bController, B2eController, RootController],
   providers: [
     ConfigService,
