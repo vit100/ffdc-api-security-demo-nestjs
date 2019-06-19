@@ -23,6 +23,8 @@ async function bootstrap() {
   if (!ConfigService.port) {
     Logger.log('Environment var PORT is not set. Listening on default 100.');
     port = 100;
+  } else {
+    port = ConfigService.port;
   }
   await app.listen(port, () => {
     Logger.log(`Listening on port ${port}`);
