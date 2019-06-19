@@ -19,13 +19,13 @@ async function bootstrap() {
   //   .build();
   // const document = SwaggerModule.createDocument(app, options);
   // SwaggerModule.setup('/', app, document);
-
+  let port;
   if (!ConfigService.port) {
-    Logger.log('Environment var PORT is not set. Exiting.');
-    return;
+    Logger.log('Environment var PORT is not set. Listening on default 100.');
+    port = 100;
   }
-  await app.listen(ConfigService.port || 100, () => {
-    Logger.log(`Listening on port ${ConfigService.port || 100}`);
+  await app.listen(port, () => {
+    Logger.log(`Listening on port ${port}`);
   });
 }
 bootstrap();
