@@ -24,8 +24,8 @@ async function bootstrap() {
     Logger.log('Environment var PORT is not set. Exiting.');
     return;
   }
-  await app.listen(ConfigService.port, () => {
-    Logger.log(`Listening on port ${ConfigService.port}`);
+  await app.listen(ConfigService.port || 100, () => {
+    Logger.log(`Listening on port ${ConfigService.port || 100}`);
   });
 }
 bootstrap();
