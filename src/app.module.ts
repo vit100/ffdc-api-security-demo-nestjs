@@ -14,7 +14,6 @@ import { HealthModule } from './health/health.module';
 import cors from 'cors';
 import helmet from 'helmet';
 
-
 @Module({
   imports: [HealthModule],
   controllers: [B2cController, B2bController, B2eController],
