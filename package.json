@@ -35,7 +35,7 @@
     "dotenv": "^8.0.0",
     "cpx": "^1.5.0",
     "express-bearer-token": "^2.4.0",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "helmet": "^3.18.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.5.1",
